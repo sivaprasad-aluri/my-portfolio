@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.0fbb7b4f.css",
-    "main.js": "/static/js/main.d3f15f60.js",
-    "static/js/453.41811d64.chunk.js": "/static/js/453.41811d64.chunk.js",
-    "static/media/siva.jpg": "/static/media/siva.054de17fd8986cc8ee0e.jpg",
-    "index.html": "/index.html",
-    "main.0fbb7b4f.css.map": "/static/css/main.0fbb7b4f.css.map",
-    "main.d3f15f60.js.map": "/static/js/main.d3f15f60.js.map",
-    "453.41811d64.chunk.js.map": "/static/js/453.41811d64.chunk.js.map"
+    "main.css": "/my-portfolio/static/css/main.0fbb7b4f.css",
+    "main.js": "/my-portfolio/static/js/main.dce11d90.js",
+    "static/js/453.41811d64.chunk.js": "/my-portfolio/static/js/453.41811d64.chunk.js",
+    "static/media/siva.jpg": "/my-portfolio/static/media/siva.054de17fd8986cc8ee0e.jpg",
+    "index.html": "/my-portfolio/index.html",
+    "main.0fbb7b4f.css.map": "/my-portfolio/static/css/main.0fbb7b4f.css.map",
+    "main.dce11d90.js.map": "/my-portfolio/static/js/main.dce11d90.js.map",
+    "453.41811d64.chunk.js.map": "/my-portfolio/static/js/453.41811d64.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0fbb7b4f.css",
-    "static/js/main.d3f15f60.js"
+    "static/js/main.dce11d90.js"
   ]
 }

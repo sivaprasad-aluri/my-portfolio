@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +13,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.custom-cursor {
+  z-index: 10000; /* Make sure it's high enough to be on top */
+}
+.MuiDrawer-root {
+  pointer-events: auto !important; /* Ensure pointer events are not disabled */
 }

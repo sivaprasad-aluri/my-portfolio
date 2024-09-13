@@ -1,15 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ThemeProvider } from "@emotion/react";
+import theme from "./theme";
+import CssBaseline from "@mui/material/CssBaseline";
+import AnimatedCursor from "react-animated-cursor";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AnimatedCursor
+        color="250, 220, 230"
+        innerSize={5}
+        outerSize={20}
+        outerScale={2}
+        innerScale={1}
+        outerStyle={{
+          background: "rgba(0,0,0,0.3)",
+          border: "2px solid",
+          zIndex: 10000,
+        }}
+        innerStyle={{ zIndex: 10000 }}
+      />
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

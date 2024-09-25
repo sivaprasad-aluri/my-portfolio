@@ -2,7 +2,17 @@ import React, { SyntheticEvent } from "react";
 import {
   AppBar,
   Box,
+  Button,
+  Step,
+  StepContent,
+  StepLabel,
+  Stepper,
   Tab,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
   Tabs,
   Typography,
   useMediaQuery,
@@ -13,6 +23,27 @@ import { useTheme } from "@mui/material/styles";
 // https://wordpress.validthemes.net/ambrox/portfolio-dark/
 
 const Resume = () => {
+  const steps = [
+    {
+      label: "Select campaign settings",
+      description: `For each ad campaign that you create, you can control how much
+                you're willing to spend on clicks and conversions, which networks
+                and geographical locations you want your ads to show on, and more.`,
+    },
+    {
+      label: "Create an ad group",
+      description:
+        "An ad group contains one or more ads which target a shared set of keywords.",
+    },
+    {
+      label: "Create an ad",
+      description: `Try out different ad text to see what brings in the most customers,
+                and learn how to enhance your ads using features like ad extensions.
+                If you run into any problems with your ads, find out how to tell if
+                they're running and how to resolve approval issues.`,
+    },
+  ];
+
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [value, setValue] = React.useState(0);
@@ -29,102 +60,80 @@ const Resume = () => {
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
-        flexDirection: "column",
-        justifyContent: "center",
-        margin: "16px 0px",
       }}
     >
-      <Typography
-        variant="h3"
-        textTransform="uppercase"
-        color="#fff"
-        letterSpacing={3}
-        width="90%"
-        textAlign="left"
-        fontWeight={600}
-        my={3}
+      <Box
+        px={5}
+        my={{ xs: 5, md: 0 }}
+        display={{
+          xs: "block",
+          md: "flex",
+        }}
+        flexDirection="column"
+        rowGap={5}
       >
-        {" "}
-        Resume{" "}
-      </Typography>
-
-      <Box sx={{ width: "75%" }}>
-        <AppBar
-          position="static"
+        <Typography
+          variant="h5"
+          p={2}
+          textAlign="center"
+          mb={5}
           sx={{
-            width: "100%",
-            borderRadius: isSmallScreen ? 0 : 50,
-            p: 0.5,
-            background: isSmallScreen ? "transparent" : "#444",
-            color: "#fff",
-            flexDirection: isSmallScreen ? "row" : "column",
+            position: "relative",
+            "::before": {
+              content: '""', // Empty content for the line
+              position: "absolute",
+              bottom: 0,
+              left: "50%",
+              transform: "translateX(-50%)", // Center the line horizontally
+              width: "35%", // Make the line 50% of the width
+              height: "4px", // Line thickness
+              backgroundColor: "#aeaeae", // Line color
+            },
+            "::after": {
+              content: "'SUMMARY'",
+              position: "absolute",
+              left: "50%",
+              top: "-50%",
+              transform: "translateX(-50%)", // Ensure horizontal centering
+              fontSize: { xs: "3rem", md: "4rem" }, // Change for medium screens
+              fontWeight: 900,
+              letterSpacing: { xs: 5, md: 10 },
+              color: "#888",
+              opacity: 0.1, // Subtle background effect
+            },
           }}
         >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            indicatorColor="primary"
-            TabIndicatorProps={{
-              sx: {
-                backgroundColor: "#222", // Custom color for the indicator
-                color: "#fff !important",
-                borderRadius: 50,
-                height: "100%", // Adjust height based on orientation
-                width: "100%", // Adjust width based on orientation
-                left: isSmallScreen ? 0 : "unset", // Align indicator for vertical tabs
-              },
-            }}
-            textColor="primary"
-            variant="fullWidth"
-            aria-label="full width tabs example"
-            orientation={isSmallScreen ? "vertical" : "horizontal"}
-            sx={{
-              color: "#fff",
-              "& .Mui-selected": {
-                color: "#fff !important", // Active tab text color (white)
-                zIndex: 2, // Keep the text on top of the indicator
-              },
-            }}
-          >
-            <Tab
-              disableRipple
-              label="Biography"
-              sx={{
-                textTransform: "uppercase",
-                color: "#fff",
-              }}
-            />
-            <Tab
-              label="Skills"
-              sx={{ textTransform: "uppercase" }}
-              disableRipple
-            />
-            <Tab
-              label="Education"
-              sx={{ textTransform: "uppercase" }}
-              disableRipple
-            />
-          </Tabs>
-        </AppBar>
-      </Box>
-      <Box
-        sx={{
-          border: "1px double #fff",
-          zIndex: -8,
-          borderRadius: 2,
-          flexGrow: 1,
-          p: 3,
-          width: "90%",
-        }}
-        mt={isSmallScreen ? "0px" : "-30px"}
-      >
-        {value === 0 && (
-          <Box my={4}>
-            <Typography variant="h4">Content for Tab One</Typography>
+          Resume
+        </Typography>
+        <Box
+          display={{
+            xs: "block",
+            md: "flex",
+          }}
+          justifyContent="space-between"
+        >
+          <Box pl={2} width={{ xs: "100%", md: "50%" }} pr={3}>
+            <Stepper orientation="vertical">
+              {steps.map((step, index) => (
+                <Step key={step.label}>
+                  <StepLabel
+                    optional={
+                      index === steps.length - 1 ? (
+                        <Typography variant="caption">Last step</Typography>
+                      ) : null
+                    }
+                  >
+                    {step.label}
+                  </StepLabel>
+                  <StepContent>
+                    <Typography>{step.description}</Typography>
+                  </StepContent>
+                </Step>
+              ))}
+            </Stepper>
           </Box>
-        )}
-        {value === 1 && <div>Content for Tab Two</div>}
-        {value === 2 && <div>Content for Tab Three</div>}
+          <Box px={2} width={{ xs: "100%", md: "50%" }} pt={5}></Box>
+        </Box>
       </Box>
     </Element>
   );

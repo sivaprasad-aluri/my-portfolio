@@ -8,7 +8,7 @@ const Portfolio = () => {
     <Element
       name="PortfolioPage"
       className="element"
-      style={{ height: "100vh" }}
+      style={{ minHeight: "100vh" }}
     >
       <Typography>Portfolio</Typography>
     </Element>

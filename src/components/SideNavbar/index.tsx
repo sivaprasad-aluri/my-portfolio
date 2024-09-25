@@ -79,7 +79,6 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ drawerWidth }) => {
         >
           <Link
             to="HomePage"
-            // containerId="HomePage"
             spy={true}
             onClick={handleDrawerToggle}
             offset={0}
@@ -117,11 +116,9 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ drawerWidth }) => {
             >
               <Link
                 to={`${item.text}Page`}
-                // containerId={`${item.text}Page`}
                 activeClass="active"
                 spy={true}
                 smooth={true}
-                onClick={handleDrawerToggle}
                 activeStyle={{
                   color: "#fff",
                 }}
@@ -243,7 +240,6 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ drawerWidth }) => {
         component="main"
         sx={{
           flexGrow: 1,
-          px: 3,
           width: "100%",
         }}
       >
